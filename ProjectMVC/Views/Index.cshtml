@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProjectMVC.Models.Courses>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <center>
+        <h2>Table</h2>
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LecturerId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Classroom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Day)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumHours)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SHour)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EHour)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LecturerId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Classroom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Day)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumHours)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SHour)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EHour)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </center>

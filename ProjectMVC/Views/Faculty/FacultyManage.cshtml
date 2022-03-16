@@ -1,0 +1,132 @@
+﻿@model ProjectMVC.Models.Courses
+
+@{
+    ViewBag.Title = "FacultyManage";
+}
+
+<h2>FacultyManage</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Courses</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Course)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LecturerId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LecturerId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LecturerId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Day, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Day, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Day, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumHours, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumHours, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumHours, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SHour, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SHour, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SHour, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EHour, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EHour, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EHour, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Classroom, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Classroom, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Classroom, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+@*
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+*@
+
+
+<table id="CoursesTable" class="table">
+    <tr>
+        <td>Course </td>
+        <td>LecturerId </td>
+        <td>Day</td>
+        <td>NumHours</td>
+        <td>SHour</td>
+        <td>EHour</td>
+        <td>Classroom</td>
+    </tr>
+</table>
+
+
+<script>
+    @*$("#ID").change(function () {
+        var regex1 = RegExp('^[0-9]{8}$');
+        var a = regex1.test($("#ID").val());
+        if (a) {
+            document.getElementById("Submit").disabled = false;
+        }
+    });
+    document.querySelector("#frmAdd").addEventListener("submit", function (e) {
+        var regex1 = RegExp('^[0-9]{8}$');
+        var a = regex1.test($("#ID").val());
+        if (!a)
+            ;
+        else
+            sendData();
+    });*@
+     function restart() {
+        $.get("getUsersByJson", null, bindData);
+    }
+
+
+    function deleteCourse(name) {
+        if (confirm('Are you sure you want to delete this thing from the database?'))
+            $.post("DeleteCourse", "Course=" + name, restart);
+    }
+
+    restart();
+     function bindData(courses) {
+        $("#CoursesTable").find("tr:gt(0)").remove();
+        var tbl = $("#CoursesTable");
+     }
+    function sendData() {
+
+        var frmData = $("#frmAdd").serialize();
+        $.post("SubmitUser", frmData, restart);
+        $("#name").val("");
+        $("#price").val("");
+    }
+</script>

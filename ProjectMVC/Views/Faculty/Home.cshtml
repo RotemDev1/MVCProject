@@ -1,0 +1,42 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<center>
+    <h2 style="color:indianred">Hello, Faculty Administrator! What do you want to do today?</h2>
+
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+    </head>
+    <body>
+        <div>
+
+            <center> <h1 style="color:darkseagreen">Welcome To SCE Website!</h1><br /></center>
+
+
+            @if (Session["Id"] != null)
+            {
+                <br />
+                @Html.ActionLink("Assign Student to the Course", "FacultyPage", "Faculty")
+                <br />
+                @Html.ActionLink("Add New Course", "FacultyPage", "Faculty")
+                <br />
+                @Html.ActionLink("Edit Course Schedule", "FacultyManage", "Faculty")
+                <br />
+                @Html.ActionLink("Edit Exams Schedule", "FacultyPage", "Faculty")
+                <br />
+                @Html.ActionLink("Update the Course Grade", "FacultyPage", "Faculty")
+            }
+            <i style="color:darksalmon">@TempData["success"]</i><br />
+
+
+        </div>
+    </body>
+</html>
+
+</center>

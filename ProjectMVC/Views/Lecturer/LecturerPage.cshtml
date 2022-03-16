@@ -1,0 +1,53 @@
+﻿
+
+@model ProjectMVC.ViewModel.CoursesViewModel
+
+@using ProjectMVC.Models
+@{
+    Layout = null;
+    //ViewBag.Title = "StudentPage";
+}
+
+@*<h2>LecturerPage</h2>*@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>TABLE</title>
+</head>
+
+<body>
+    <div>
+        <span style="color:blue">Current courses</span>
+        <br />
+        <table>
+            <tr>
+
+                <td>Courses</td>
+                <td>Days</td>
+                <td>Hours</td>
+            </tr>
+            @foreach (Courses obj in Model.courses)
+
+            {
+
+                <td "col-md-1" class="Course" val="@obj.Course">@obj.Course</td>
+                <td "col-md-2" class="Days" val="@obj.Day">@obj.Day</td>
+                <td "col-md-3" class="Hours" val="@obj.NumHours">@obj.NumHours</td>
+
+                /*<td "col-md-5" class="MoedA" val="@obj.MoedA">@obj.MoedA</td>
+                <td "col-md-6" class="MoedB" val="@obj.MoedB">@obj.MoedB</td>
+                <td "col-md-7" class="FinalGrade" val="@obj.FinalGrade">@obj.FinalGrade</td>*/
+
+                /*<tr>@obj.LastName</tr>
+                <tr>@obj.Id</tr>
+                <tr>@obj.Course</tr>
+                <tr>@obj.MoedA</tr>
+                <tr>@obj.MoedB</tr>
+                <tr>@obj.FinalGrade</tr>*/
+            }
+
+        </table>
+    </div>
+</body>
+</html>

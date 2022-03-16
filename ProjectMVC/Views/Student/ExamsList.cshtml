@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ProjectMVC.Models.Exams>
+
+@{
+    ViewBag.Title = "ExamsList";
+}
+
+<h2>ExamsList</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Course)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateMoedA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShouerExamA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EhouerExamA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateMoedB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShouerExamB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EhouerExamB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classroom)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateMoedA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShouerExamA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EhouerExamA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateMoedB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShouerExamB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EhouerExamB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classroom)
+        </td>
+    
+    </tr>
+}
+
+</table>

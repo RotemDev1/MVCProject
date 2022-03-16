@@ -1,0 +1,21 @@
+﻿@model ProjectMVC.ViewModel.UsersViewModel
+
+@using ProjectMVC.Models
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<div>
+
+    <form action="Login" method="post">
+        <label>User Name:</label> <input id="UserName" name="UserName" type="text" /> @Html.ValidationMessageFor(x => x.user.UserName)
+        <br />
+        <label>Password:</label> <input id="Password" name="Password" type="text" />@Html.ValidationMessageFor(x => x.user.Password)
+        <br />
+
+        <input id="Submit" type="submit" value="Enter" />
+    </form>
+
+</div>

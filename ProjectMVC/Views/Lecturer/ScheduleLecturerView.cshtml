@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProjectMVC.Models.Courses>
+
+@{
+    ViewBag.Title = "ScheduleLecturerView";
+}
+
+<h2>ScheduleView</h2>
+
+<center>
+    <table class="table">
+        <tr>
+            <th>
+                    @Html.DisplayNameFor(model => model.Course)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.NumHours)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.SHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EHour)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Classroom)
+                </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Course)
+                    </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Day)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.NumHours)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.SHour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EHour)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Classroom)
+                    </td>*@
+            <td>
+               
+               
+                    @Html.ActionLink("StudentsList", "StudentsList", new { id = item.Course, value = item.CourseId })
+                
+            </td>
+            </tr>
+        }
+
+    </table>
+</center>

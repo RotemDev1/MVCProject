@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tempdbModelStoreContainer" CdmEntityContainer="tempdbEntities">
+    <EntitySetMapping Name="StudentsNew">
+      <EntityTypeMapping TypeName="tempdbModel.StudentsNew">
+        <MappingFragment StoreEntitySet="StudentsNew">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="MoedA" ColumnName="MoedA" />
+          <ScalarProperty Name="MoedB" ColumnName="MoedB" />
+          <ScalarProperty Name="FinalGrade" ColumnName="FinalGrade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

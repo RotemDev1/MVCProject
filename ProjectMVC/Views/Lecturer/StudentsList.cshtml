@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ProjectMVC.Models.Students>
+
+@{
+    ViewBag.Title = "StudentsList";
+}
+
+<h2>StudentsList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoedA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoedB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinalGrade)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CourseId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MoedA)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MoedB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FinalGrade)
+    </td>
+    
+<td>
+    @Html.ActionLink("EditGrades", "Create", new{ value = item.Id, MoedA = item.MoedA, MoedB = item.MoedB ,FirstName= item.FirstName,LastName = item.LastName,CourseId = item.CourseId })
+
+</td>
+</tr>
+    }
+
+</table>
